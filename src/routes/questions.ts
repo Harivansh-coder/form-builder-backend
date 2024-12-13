@@ -5,7 +5,6 @@ import {
   updateQuestionController,
 } from "@/controllers/questions";
 import express from "express";
-import { get } from "mongoose";
 
 const questionRouter = express.Router();
 

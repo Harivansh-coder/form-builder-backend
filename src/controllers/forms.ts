@@ -1,5 +1,6 @@
 // contains contollers for form routes
 import Form from "@/models/form";
+import Question from "@/models/question";
 import { Request, RequestHandler, Response } from "express";
 
 // create a new form
@@ -89,10 +90,7 @@ export const deleteFormController: RequestHandler = async (
     }
 
     // delete all questions associated with the form
-    await form.populate("questions").execPopulate();
-    await form.questions.forEach(async (question) => {
-      await question.remove();
-    });
+    await Question.deleteMany({ form: formID });
 
     res.status(204).send(); // 204 No Content, no body is needed
   } catch (error) {
