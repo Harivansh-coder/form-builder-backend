@@ -20,4 +20,4 @@ benchmarks/graphs
 .vercel
 
 # dist build output
-/dist
+# /dist
